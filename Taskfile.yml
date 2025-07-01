@@ -51,18 +51,4 @@ tasks:
   run:
     desc: Run the application
     cmds:
-      - poetry run python -m app.main
-
-  docker-build:
-    desc: Build the application in docker
-    cmds:
-      - docker build -t python-app .
-  
-  docker-run:
-    desc: Run the application in docker
-    cmds:
-      - docker run -it --rm python-app
-
-  docker:
-    desc: Start the application in docker
-    deps: [docker-build, docker-run]
+      - poetry run python {{.CLI_ARGS}}
