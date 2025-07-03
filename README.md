@@ -8,7 +8,7 @@ The project includes implementations of algorithms and models both **from scratc
 
 * [Python 3.12+](https://www.python.org/downloads/)
 * [Poetry](https://python-poetry.org/docs/#installation)
-* [Jupyter](https://jupyter.org/)
+* [Jupyter](https://jupyter.org/) (optional)
 * [Task](https://taskfile.dev/) (optional)
 
 ## 🚧 Why “Kata”?
@@ -17,6 +17,20 @@ The project includes implementations of algorithms and models both **from scratc
 > In programming, it’s a path to deep understanding through repetition and variation.
 
 This repository is built around the idea of regular practice: by repeating and analyzing the implementation of the same algorithm in different ways, you build intuition, confidence, and flexibility.
+
+## 📁 Project Structure
+
+```structure
+├── LICENSE.md
+├── machine_learning
+│   └── regression_algorithms
+│       ├── linear_regression.ipynb
+│       └── logistic_regression.ipynb
+├── poetry.lock
+├── pyproject.toml
+├── README.md
+└── Taskfile.yml
+```
 
 ## 📜 License
 
