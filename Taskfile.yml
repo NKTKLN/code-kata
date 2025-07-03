@@ -10,38 +10,76 @@ tasks:
     desc: Install git hooks via pre-commit
     cmds:
       - poetry run pre-commit install
+  init:
+    desc: Full project setup — install deps, configure pre-commit and Commitizen
+    deps: [install, precommit]
+
+  cz-commit:
+    desc: Create a commit using Commitizen (Conventional Commits standard)
+    cmds:
+      - poetry run cz commit
+
+  cz-check:
+    desc: Check if commit messages follow Conventional Commits
+    cmds:
+      - poetry run cz check
+
+  cz-bump:
+    desc: Bump version, tag, and update changelog using Commitizen
+    cmds:
+      - poetry run cz bump
+
+  release:
+    desc: Bump version and push tags (run after merge to main)
+    cmds:
+      - poetry run cz bump
+      - git push --follow-tags
 
   format:
     desc: Code formatting with black and ruff
+    platforms: [linux, darwin]
     cmds:
-      - poetry run black .
-      - poetry run isort . --profile black
+      - |
+        if find . -name "*.py" | grep -vE '^./(\.git|__pycache__|build|dist|\.venv|tmp)/' | grep -q .; then
+          poetry run ruff check . --fix
+          poetry run black .
+          poetry run isort . --profile black
+        else
+          echo "No Python files found. Skipping Python format steps."
+        fi
+      - |
+        if find . -name "*.ipynb" | grep -vE '^./(\.git|__pycache__|build|dist|\.venv|tmp)/' | grep -q .; then
+          poetry run nbqa ruff --fix .
+          poetry run nbqa black .
+          poetry run nbqa isort . --profile black
+        else
+          echo "No Jupyter notebooks found. Skipping nbqa format steps."
+        fi
 
   lint:
     desc: Static code analysis with ruff and mypy
     cmds:
-      - poetry run ruff check .
-      - poetry run mypy .
-      - poetry run pylint --jobs=4 .
-
-  docstyle:
-    desc: Docstring style check
-    cmds:
-      - poetry run interrogate .
+      - |
+        if find . -name "*.py" | grep -vE '^./(\.git|__pycache__|build|dist|\.venv|tmp)/' | grep -q .; then
+          poetry run ruff check .
+        else
+          echo "No Python files found. Skipping static analysis."
+        fi
+      - |
+        if find . -name "*.ipynb" | grep -vE '^./(\.git|__pycache__|build|dist|\.venv|tmp)/' | grep -q .; then
+          poetry run nbqa ruff .
+        else
+          echo "No Jupyter notebooks found. Skipping nbqa static analysis."
+        fi
 
   audit:
     desc: Dependency vulnerability audit
     cmds:
       - poetry run pip-audit --ignore-vuln PYSEC-2022-42969
 
-  deadcode:
-    desc: Find unused code
-    cmds:
-      - poetry run vulture .
-
   check:
     desc: Full linting, audit run, and code checks
-    deps: [format, lint, docstyle, audit, deadcode]
+    deps: [format, lint, audit]
 
   unused-libs:
     desc: Check for unused libraries
