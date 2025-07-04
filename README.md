@@ -23,6 +23,11 @@ This repository is built around the idea of regular practice: by repeating and a
 ```structure
 ├── LICENSE.md
 ├── machine_learning
+│   ├── knn
+│   │   ├── annoy_classification.ipynb
+│   │   ├── knn_classification.ipynb
+│   │   ├── knn_regression.ipynb
+│   │   └── knn_with_k-d_trees.ipynb
 │   └── regression_algorithms
 │       ├── linear_regression.ipynb
 │       └── logistic_regression.ipynb
