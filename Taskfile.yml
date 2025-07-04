@@ -49,8 +49,8 @@ tasks:
         fi
       - |
         if find . -name "*.ipynb" | grep -vE '^./(\.git|__pycache__|build|dist|\.venv|tmp)/' | grep -q .; then
-          poetry run nbqa ruff --fix .
           poetry run nbqa black .
+          poetry run nbqa ruff --fix .
           poetry run nbqa isort . --profile black
         else
           echo "No Jupyter notebooks found. Skipping nbqa format steps."
