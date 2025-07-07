@@ -25,6 +25,7 @@ This repository is built around the idea of regular practice: by repeating and a
 ├── machine_learning
 │   ├── knn
 │   │   ├── annoy_classification.ipynb
+│   │   ├── knn_classification_with_hnsw.ipynb
 │   │   ├── knn_classification_with_k-d_trees.ipynb
 │   │   ├── knn_classification_with_lsh.ipynb
 │   │   ├── knn_classification.ipynb
