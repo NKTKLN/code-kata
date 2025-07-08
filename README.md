@@ -26,6 +26,9 @@ This repository is built around the idea of regular practice: by repeating and a
 │   ├── decision_trees
 │   │   ├── decision_tree_classification.ipynb
 │   │   └── decision_tree_regression.ipynb
+│   ├── ensembling
+│   │   ├── bagging_tree_classification.ipynb
+│   │   └── random_forest_classification.ipynb
 │   ├── knn
 │   │   ├── annoy_classification.ipynb
 │   │   ├── knn_classification_with_hnsw.ipynb
@@ -35,6 +38,7 @@ This repository is built around the idea of regular practice: by repeating and a
 │   │   └── knn_regression.ipynb
 │   ├── regression_algorithms
 │   │   ├── linear_regression.ipynb
+│   │   ├── logistic_classification.ipynb
 │   │   └── logistic_regression.ipynb
 │   └── templates
 │       ├── classification.ipynb
