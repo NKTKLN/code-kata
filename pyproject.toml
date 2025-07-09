@@ -19,6 +19,7 @@ dependencies = [
     "ipywidgets (>=8.1.7,<9.0.0)",
     "jupyterlab-widgets (>=3.0.15,<4.0.0)",
     "iprogress (>=0.4,<0.5)",
+    "xgboost (>=3.0.2,<4.0.0)",
 ]
 
 

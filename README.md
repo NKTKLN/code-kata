@@ -21,32 +21,12 @@ This repository is built around the idea of regular practice: by repeating and a
 ## 📁 Project Structure
 
 ```structure
-├── LICENSE.md
-├── machine_learning
-│   ├── decision_trees
-│   │   ├── decision_tree_classification.ipynb
-│   │   └── decision_tree_regression.ipynb
-│   ├── ensembling
-│   │   ├── bagging_tree_classification.ipynb
-│   │   └── random_forest_classification.ipynb
-│   ├── knn
-│   │   ├── annoy_classification.ipynb
-│   │   ├── knn_classification_with_hnsw.ipynb
-│   │   ├── knn_classification_with_k-d_trees.ipynb
-│   │   ├── knn_classification_with_lsh.ipynb
-│   │   ├── knn_classification.ipynb
-│   │   └── knn_regression.ipynb
-│   ├── regression_algorithms
-│   │   ├── linear_regression.ipynb
-│   │   ├── logistic_classification.ipynb
-│   │   └── logistic_regression.ipynb
-│   └── templates
-│       ├── classification.ipynb
-│       └── regression.ipynb
-├── poetry.lock
-├── pyproject.toml
-├── README.md
-└── Taskfile.yml
+└── machine_learning
+    ├── decision_trees
+    ├── ensembling
+    ├── knn
+    ├── regression_algorithms
+    └── templates
 ```
 
 ## 📜 License
