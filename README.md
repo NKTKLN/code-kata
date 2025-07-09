@@ -21,12 +21,14 @@ This repository is built around the idea of regular practice: by repeating and a
 ## 📁 Project Structure
 
 ```structure
+code-kata
 └── machine_learning
-    ├── decision_trees
-    ├── ensembling
-    ├── knn
-    ├── regression_algorithms
-    └── templates
+    ├── algorithms
+    │   ├── decision_trees
+    │   ├── ensembling
+    │   ├── knn
+    │   └── regression_algorithms
+    └── templates
 ```
 
 ## 📜 License
