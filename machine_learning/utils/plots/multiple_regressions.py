@@ -21,7 +21,6 @@ def plot_regression_models(
         X_test (NDArray[np.float64]): Feature values where predictions are
             evaluated and plotted.
     """
-    plt.figure(figsize=(12, 10))
     sns.scatterplot(x=X.flatten(), y=y.flatten(), alpha=0.3, label="Noisy data points")
 
     palette = sns.color_palette("Set1")
