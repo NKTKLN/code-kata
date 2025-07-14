@@ -16,15 +16,15 @@ def evaluate_regression_models(
 
     Returns:
         pd.DataFrame: DataFrame with evaluation metrics (MAE, MSE, R2) for each model.
-            Rows correspond to model names; columns correspond to metrics.
+            Columns correspond to model names; rows correspond to metrics.
     """
-    evaluations = pd.DataFrame(columns=["MAE", "MSE", "R2"], index=predictions.keys())
+    evaluations = pd.DataFrame(columns=predictions.keys(), index=["MAE", "MSE", "R2"])
 
     for name, y_pred in predictions.items():
         mae = mean_absolute_error(y, y_pred)
         mse = mean_squared_error(y, y_pred)
         r2 = r2_score(y, y_pred)
 
-        evaluations.loc[name] = [mae, mse, r2]
+        evaluations.loc[:, name] = [mae, mse, r2]
 
     return evaluations.astype(float)

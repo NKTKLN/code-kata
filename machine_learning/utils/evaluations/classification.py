@@ -22,12 +22,12 @@ def evaluate_classification_models(
 
     Returns:
         pd.DataFrame: DataFrame containing classification metrics — Accuracy, Precision,
-            Recall, F1-score, and ROC AUC — for each model. Rows correspond to
-            model names, columns correspond to the metric names.
+            Recall, F1-score, and ROC AUC — for each model. Columns correspond to
+            model names, rows correspond to the metric names.
     """
     evaluations = pd.DataFrame(
-        columns=["Accuracy", "Precision", "Recall", "F1-score", "ROC AUC"],
-        index=predictions.keys(),
+        columns=predictions.keys(),
+        index=["Accuracy", "Precision", "Recall", "F1-score", "ROC AUC"],
     )
 
     for name, y_pred in predictions.items():
@@ -37,6 +37,6 @@ def evaluate_classification_models(
         f1 = f1_score(y, y_pred)
         roc_auc = roc_auc_score(y, y_pred)
 
-        evaluations.loc[name] = [accuracy, precision, recall, f1, roc_auc]
+        evaluations.loc[:, name] = [accuracy, precision, recall, f1, roc_auc]
 
     return evaluations.astype(float)
