@@ -27,7 +27,7 @@ def plot_confusion_matrices(
     n_models = len(predictions)
     n_cols = min(n_models, n_cols)
     n_rows = ceil(n_models / n_cols)
-    _, axes = plt.subplots(n_rows, n_cols, figsize=(6 * n_cols, 5 * n_rows))
+    fig, axes = plt.subplots(n_rows, n_cols, figsize=(6 * n_cols, 5 * n_rows))
     axes = np.array(axes).reshape(-1)
 
     for ax, (name, y_pred) in zip(axes, predictions.items(), strict=False):
@@ -36,6 +36,9 @@ def plot_confusion_matrices(
         ax.set_xlabel("Predicted Labels")
         ax.set_ylabel("True Labels")
         ax.set_title(name)
+
+    for i in range(n_models, len(axes)):
+        fig.delaxes(axes[i])
 
     plt.tight_layout()
     plt.show()
