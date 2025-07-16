@@ -7,13 +7,13 @@ import seaborn as sns
 from numpy.typing import NDArray
 
 
-def plot_decision_tree_boundaries(
+def plot_classification_boundaries(
     models: dict[str, Any],
     X_train: NDArray[np.float64],
     y_train: NDArray[np.float64],
     n_cols: int = 2,
 ) -> None:
-    """Visualize decision boundaries of trained decision tree models.
+    """Visualize boundaries of traine models.
 
     Args:
         models (dict[str, Any]): Dictionary of trained models with `.predict` method.
