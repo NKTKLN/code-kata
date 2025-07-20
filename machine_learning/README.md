@@ -2,40 +2,27 @@
 
 This folder contains Jupyter notebooks implementing classical machine learning algorithms. It covers both foundational methods and some advanced techniques to provide a deep understanding of the principles behind these algorithms and how to apply them in practice.
 
-## ⚠️ Skipped / Planned Topics
-
-The following important ML topics are currently **not covered** but planned for future additions:
-
-* Stacking and other advanced ensemble techniques
-* Probabilistic Models (Bayesian approaches, latent variable models)
-* Deep Learning:
-  * Neural networks basics
-  * CNNs, RNNs, Transformers, Graph Neural Networks
-  * Training techniques and theory
-* Generative Models (VAE, GANs, Normalizing Flows, Diffusion Models)
-* Natural Language Processing (NLP)
-* Recommender Systems
-* Unsupervised Learning:
-  * Clustering
-  * Dimensionality reduction
-* Time Series Analysis and ARIMA models
-* Reinforcement Learning
-* Theoretical ML foundations (Bias-Variance, PAC-Bayes, etc.)
-* Optimization methods (SGD convergence, proximal methods, second-order methods)
-* Online learning and stochastic optimization
-
 ## 📂 Folder Structure
 
 ```plaintext
-machine_learning
+machine_learning/
 ├── algorithms
 │   ├── decision_trees
 │   │   ├── decision_tree_classification.ipynb
 │   │   └── decision_tree_regression.ipynb
 │   ├── ensembling
-│   │   ├── bagging_tree_classification.ipynb
-│   │   ├── gradient_boosting_tree_classification.ipynb
-│   │   └── random_forest_classification.ipynb
+│   │   ├── bagging
+│   │   │   ├── bagging_tree_classification.ipynb
+│   │   │   └── bagging_tree_regression.ipynb
+│   │   ├── gradient boosting
+│   │   │   ├── gradient_boosting_tree_classification.ipynb
+│   │   │   └── gradient_boosting_tree_regression.ipynb
+│   │   ├── random_forest
+│   │   │   ├── random_forest_classification.ipynb
+│   │   │   └── random_forest_regression.ipynb
+│   │   └── stacking
+│   │       ├── stacking_classification.ipynb
+│   │       └── stacking_regression.ipynb
 │   ├── knn
 │   │   ├── annoy_classification.ipynb
 │   │   ├── knn_classification_with_hnsw.ipynb
@@ -45,10 +32,21 @@ machine_learning
 │   │   └── knn_regression.ipynb
 │   └── regression_algorithms
 │       ├── linear_regression.ipynb
-│       ├── logistic_classification.ipynb
 │       └── logistic_regression.ipynb
-├── README.md
-└── templates
-    ├── classification.ipynb
-    └── regression.ipynb
+├── metrics
+│   └── regression_metrics.ipynb
+├── practice
+│   └── titanic.ipynb
+├── templates
+│   └── algorithm.ipynb
+└── utils
+    ├── evaluations
+    │   ├── classification.py
+    │   ├── highlight_invalid_regression.py
+    │   └── regression.py
+    └── plots
+        ├── confusion_matrix.py
+        ├── multiple_classification_boundaries.py
+        ├── multiple_confusion_matrices.py
+        └── multiple_regressions.py
 ```

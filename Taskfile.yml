@@ -41,8 +41,8 @@ tasks:
     cmds:
       - |
         if find . -name "*.py" | grep -vE '^./(\.git|__pycache__|build|dist|\.venv|tmp)/' | grep -q .; then
-          poetry run ruff check . --fix
           poetry run black .
+          poetry run ruff check . --fix
           poetry run isort . --profile black
         else
           echo "No Python files found. Skipping Python format steps."

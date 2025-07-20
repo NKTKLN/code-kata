@@ -1,5 +1,5 @@
 import numpy as np
-import pansas as pd
+import pandas as pd
 from numpy.typing import NDArray
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
@@ -15,10 +15,10 @@ def evaluate_regression_models(
         y (NDArray[np.float64]): True target values of shape (n_samples,).
 
     Returns:
-        pd.DataFrame: DataFrame with evaluation metrics (MAE, MSE, R2) for each model.
+        pd.DataFrame: DataFrame with evaluation metrics (MAE, MSE, R²) for each model.
             Columns correspond to model names; rows correspond to metrics.
     """
-    evaluations = pd.DataFrame(columns=predictions.keys(), index=["MAE", "MSE", "R2"])
+    evaluations = pd.DataFrame(columns=predictions.keys(), index=["MAE", "MSE", "R²"])
 
     for name, y_pred in predictions.items():
         mae = mean_absolute_error(y, y_pred)
