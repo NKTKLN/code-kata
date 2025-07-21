@@ -29,8 +29,8 @@ def highlight_invalid_regression_metrics(column: pd.Series) -> list[str]:
             highlight_styles.append("")
             continue
 
-        # R²
-        if metric == "R²":
+        # R² / EVS
+        if metric in {"R²", "EVS"}:
             if val_float < 0.5:
                 style = "background-color: red; color: white"
             elif val_float <= 0.8:
@@ -38,11 +38,11 @@ def highlight_invalid_regression_metrics(column: pd.Series) -> list[str]:
             else:
                 style = "background-color: green; color: white"
 
-        # MAPE / WAPE / RMSLE
-        elif metric in {"MAPE %", "RMSLE %", "WAPE %"}:
-            if val_float > 20:
+        # MAPE / SMAPE / WAPE / RMSLE
+        elif metric in {"MAPE", "SMAPE", "RMSLE", "WAPE"}:
+            if val_float > 0.2:
                 style = "background-color: red; color: white"
-            elif val_float >= 10:
+            elif val_float >= 0.1:
                 style = "background-color: orange; color: white"
             else:
                 style = "background-color: green; color: white"
