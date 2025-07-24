@@ -24,6 +24,8 @@ dependencies = [
     "pandas (>=2.3.1,<3.0.0)",
     "plotly (>=6.2.0,<7.0.0)",
     "nbformat (>=5.10.4,<6.0.0)",
+    "scikit-optimize (>=0.10.2,<0.11.0)",
+    "optuna (>=4.4.0,<5.0.0)",
 ]
 
 
@@ -72,7 +74,7 @@ docstring-code-format = true
 docstring-code-line-length = "dynamic"
 
 [tool.ruff.lint]
-ignore = ["E203", "D100"]
+ignore = ["E203", "D100", "B018"]
 select = ["E", "F", "W", "C90", "B", "B9", "I", "D", "S"]
 
 [tool.ruff.lint.pydocstyle]

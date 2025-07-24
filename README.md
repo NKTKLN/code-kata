@@ -22,21 +22,23 @@ This repository is built around the idea of regular practice: by repeating and a
 
 ```structure
 └── machine_learning
-    ├── algorithms
-    │   ├── decision_trees
-    │   ├── ensembling
-    │   │   ├── bagging
-    │   │   ├── gradient boosting
-    │   │   ├── random_forest
-    │   │   └── stacking
-    │   ├── knn
-    │   └── regression_algorithms
-    ├── metrics
-    ├── practice
-    ├── templates
-    └── utils
-        ├── evaluations
-        └── plots
+    ├───algorithms
+    │   ├───classical_ml
+    │   │   ├───decision_trees
+    │   │   ├───knn
+    │   │   └───regression_algorithms
+    │   ├───ensemble_methods
+    │   │   ├───bagging
+    │   │   ├───gradient boosting
+    │   │   ├───random_forest
+    │   │   └───stacking
+    │   └───hyperparameter_tuning
+    ├───metrics
+    ├───practice
+    ├───templates
+    └───utils
+        ├───evaluations
+        └───plots
 ```
 
 ## 📜 License
