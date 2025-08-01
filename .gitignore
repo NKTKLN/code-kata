@@ -80,6 +80,9 @@ checkpoints/
 output/
 model/
 runs/                # e.g. for TensorBoard or wandb
+catboost_info/
+dataset/
+submission.csv
 
 # ========================
 # nbQA artifacts

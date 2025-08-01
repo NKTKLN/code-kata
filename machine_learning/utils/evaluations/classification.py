@@ -10,33 +10,26 @@ from sklearn.metrics import (
 )
 
 
-def evaluate_classification_models(
-    predictions: dict[str, NDArray[np.float64]], y: NDArray[np.float64]
-) -> pd.DataFrame:
+def evaluate_classification(y_pred: NDArray[np.float64], y_true: NDArray[np.float64]) -> pd.DataFrame:
     """Evaluate multiple classification model predictions on the provided dataset.
 
     Args:
-        predictions (dict[str, NDArray[np.float64]]): Dictionary mapping model names
-            to predicted target arrays (binary or probabilities) for the dataset.
-        y (NDArray[np.float64]): True binary target values of shape (n_samples,).
+        y_pred (NDArray[np.float64]): Predicted probabilities or binary outputs.
+        y_true (NDArray[np.float64]): True binary target values of shape (n_samples,).
 
     Returns:
         pd.DataFrame: DataFrame containing classification metrics — Accuracy, Precision,
-            Recall, F1-score, and ROC AUC — for each model. Columns correspond to
-            model names, rows correspond to the metric names.
+            Recall, F1-score, and ROC AUC. Rows correspond to the metric names.
     """
-    evaluations = pd.DataFrame(
-        columns=predictions.keys(),
-        index=["Accuracy", "Precision", "Recall", "F1-score", "ROC AUC"],
-    )
+    # If predictions are probabilities, binarize with threshold 0.5
+    y_pred_bin = (y_pred > 0.5).astype(int)
 
-    for name, y_pred in predictions.items():
-        accuracy = accuracy_score(y, y_pred)
-        precision = precision_score(y, y_pred)
-        recall = recall_score(y, y_pred)
-        f1 = f1_score(y, y_pred)
-        roc_auc = roc_auc_score(y, y_pred)
+    metrics = {
+        "Accuracy": accuracy_score(y_true, y_pred_bin),
+        "Precision": precision_score(y_true, y_pred_bin),
+        "Recall": recall_score(y_true, y_pred_bin),
+        "F1-score": f1_score(y_true, y_pred_bin),
+        "ROC AUC": roc_auc_score(y_true, y_pred),
+    }
 
-        evaluations.loc[:, name] = [accuracy, precision, recall, f1, roc_auc]
-
-    return evaluations.astype(float)
+    return pd.DataFrame.from_dict(metrics, orient="index", columns=["score"]).T
