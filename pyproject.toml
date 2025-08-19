@@ -135,3 +135,8 @@ version_scheme = "pep440"
 version_provider = "poetry"
 update_changelog_on_bump = true
 major_version_zero = true
+
+[tool.nbqa.exclude]
+black = "\\.git|__pycache__|build|dist|\\.venv|tmp"
+isort = "\\.git|__pycache__|build|dist|\\.venv|tmp"
+ruff = "\\.git|__pycache__|build|dist|\\.venv|tmp"

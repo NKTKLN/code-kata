@@ -10,7 +10,9 @@ from sklearn.metrics import (
 )
 
 
-def evaluate_classification(y_pred: NDArray[np.float64], y_true: NDArray[np.float64]) -> pd.DataFrame:
+def evaluate_classification(
+    y_pred: NDArray[np.float64], y_true: NDArray[np.float64]
+) -> pd.DataFrame:
     """Evaluate multiple classification model predictions on the provided dataset.
 
     Args:
