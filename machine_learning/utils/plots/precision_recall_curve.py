@@ -8,7 +8,7 @@ from sklearn.metrics import auc, average_precision_score, precision_recall_curve
 def plot_precision_recall_curve(
     y_true: NDArray[np.int64], y_probs: NDArray[np.int64]
 ) -> None:
-    """Plot the Precision–Recall curve and display the AP and PR-AUC score.
+    """Plot the Precision-Recall curve and display the AP and PR-AUC score.
 
     Args:
         y_true (NDArray[np.int64]): True binary class labels.
@@ -31,7 +31,7 @@ def plot_precision_recall_curve(
 
     plt.xlabel("Recall")
     plt.ylabel("Precision")
-    plt.title("Precision–Recall Curve")
+    plt.title("Precision-Recall Curve")
     plt.legend()
     plt.grid(True)
     plt.show()

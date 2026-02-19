@@ -1,92 +1,91 @@
 version: '3'
 
 tasks:
-  install:
-    desc: Install dependencies using poetry
+  # ======== Environment ========
+  sync:
+    desc: Sync dependencies (dev group) using uv
     cmds:
-      - poetry install --no-root
-    
-  precommit:
-    desc: Install git hooks via pre-commit
-    cmds:
-      - poetry run pre-commit install
-  init:
-    desc: Full project setup — install deps, configure pre-commit and Commitizen
-    deps: [install, precommit]
+      - uv sync --group dev
 
-  cz-commit:
-    desc: Create a commit using Commitizen (Conventional Commits standard)
+  precommit:
+    desc: Install git hooks
+    deps: [sync]
     cmds:
-      - poetry run cz commit
+      - uv run pre-commit install
+
+  init:
+    desc: Full project setup
+    deps: [sync, precommit]
+
+  # ======== Commitizen ========
+  cz-commit:
+    desc: Commit using Conventional Commits
+    deps: [sync]
+    cmds:
+      - uv run cz commit
 
   cz-check:
-    desc: Check if commit messages follow Conventional Commits
+    desc: Check commit messages
+    deps: [sync]
     cmds:
-      - poetry run cz check
+      - uv run cz check
 
   cz-bump:
-    desc: Bump version, tag, and update changelog using Commitizen
+    desc: Bump version and update changelog
+    deps: [sync]
     cmds:
-      - poetry run cz bump
+      - uv run cz bump
 
   release:
-    desc: Bump version and push tags (run after merge to main)
+    desc: Bump version and push tags
+    deps: [cz-bump]
     cmds:
-      - poetry run cz bump
       - git push --follow-tags
 
-  format:
-    desc: Code formatting with black and ruff
-    platforms: [linux, darwin]
+  # ======== Formatting ========
+  fmt:
+    desc: Auto-fix lint issues and format code
+    deps: [sync]
     cmds:
-      - |
-        if find . -name "*.py" | grep -vE '^./(\.git|__pycache__|build|dist|\.venv|tmp)/' | grep -q .; then
-          poetry run black .
-          poetry run ruff check . --fix
-          poetry run isort . --profile black
-        else
-          echo "No Python files found. Skipping Python format steps."
-        fi
-      - |
-        if find . -name "*.ipynb" | grep -vE '^./(\.git|__pycache__|build|dist|\.venv|tmp)/' | grep -q .; then
-          poetry run nbqa black .
-          poetry run nbqa ruff --fix .
-          poetry run nbqa isort . --profile black
-        else
-          echo "No Jupyter notebooks found. Skipping nbqa format steps."
-        fi
+      - uv run ruff check . --fix --unsafe-fixes
+      - uv run ruff format .
 
+  # ======== Static analysis ========
   lint:
-    desc: Static code analysis with ruff and mypy
+    desc: Run Ruff and MyPy
+    deps: [sync]
     cmds:
-      - |
-        if find . -name "*.py" | grep -vE '^./(\.git|__pycache__|build|dist|\.venv|tmp)/' | grep -q .; then
-          poetry run ruff check .
-        else
-          echo "No Python files found. Skipping static analysis."
-        fi
-      - |
-        if find . -name "*.ipynb" | grep -vE '^./(\.git|__pycache__|build|dist|\.venv|tmp)/' | grep -q .; then
-          poetry run nbqa ruff .
-        else
-          echo "No Jupyter notebooks found. Skipping nbqa static analysis."
-        fi
+      - uv run ruff check .
+      - uv run ruff format --check .
 
+  # ======== Dependency hygiene ========
   audit:
-    desc: Dependency vulnerability audit
+    desc: Security audit
+    deps: [sync]
     cmds:
       - poetry run pip-audit --ignore-vuln PYSEC-2022-42969
 
-  check:
-    desc: Full linting, audit run, and code checks
-    deps: [format, lint, audit]
-
   unused-libs:
-    desc: Check for unused libraries
+    desc: Detect unused dependencies
+    deps: [sync]
     cmds:
-      - poetry run deptry .
+      - uv run deptry .
 
+  # ======== Full quality gate ========
+  check:
+    desc: Run full quality checks
+    deps: [lint, audit]
+
+  # ======== Tests ========
+  test:
+    desc: Run tests with coverage
+    deps: [sync]
+    cmds:
+      - uv run pytest --cov --cov-report=term-missing --cov-report=xml
+
+  # ======== Run app ========
   run:
     desc: Run the application
+    deps: [sync]
     cmds:
-      - poetry run python {{.CLI_ARGS}}
+      - uv run python -m app.main
