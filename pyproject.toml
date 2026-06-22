@@ -1,7 +1,7 @@
 [project]
-name = "python-project-template"
+name = "code-kata"
 version = "0.1.0"
-description = "A Python project starter template with pre-configured tools"
+description = "A machine-learning practice repository focused on Kaggle competitions"
 authors = [{ name = "NKTKLN", email = "nktkln@nktkln.com" }]
 readme = "README.md"
 requires-python = ">=3.13"

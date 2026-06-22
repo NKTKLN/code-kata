@@ -95,6 +95,12 @@ __nbqa_cache__/
 Todo.md
 
 # ========================
+# Kaggle competition data
+# ========================
+competitions/*/data/*
+!competitions/*/data/.gitkeep
+
+# ========================
 # Exceptions (keep files)
 # ========================
 !data/raw/*.json

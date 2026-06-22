@@ -1,46 +1,25 @@
 # 🥋 Code Kata
 
-**Code Kata** is an educational repository for systematic practice in programming and machine learning. The name is inspired by kata in martial arts — formalized repetitive training designed to sharpen technique.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE.md)
+[![Python 3.13+](https://img.shields.io/badge/Python-3.13%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![uv](https://img.shields.io/badge/uv-managed-261230?logo=uv&logoColor=white)](https://docs.astral.sh/uv/)
+[![Task](https://img.shields.io/badge/Task-29BEB0?logo=task&logoColor=white)](https://taskfile.dev/)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-FAB040?logo=pre-commit&logoColor=black)](https://pre-commit.com/)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-FE5196?logo=conventionalcommits&logoColor=white)](https://www.conventionalcommits.org/)
 
-The project includes implementations of algorithms and models both **from scratch** and using **libraries** (`NumPy`, `scikit-learn`, `statsmodels`, `PyTorch`, and others). This approach helps to deeply understand the principles behind algorithms and learn how to apply them in practice.
+**Code Kata** is a machine-learning practice repository focused on **Kaggle competitions**. It pairs hands-on competition notebooks with study material on classical algorithms, built on **scikit-learn**, the **gradient-boosting** trio (**XGBoost / CatBoost / LightGBM**), and **Optuna** for tuning — all wired together with **uv**, **Ruff**, and **Task**.
 
 ## 📦 Dependencies
 
-* [Python 3.12+](https://www.python.org/downloads/)
-* [Poetry](https://python-poetry.org/docs/#installation)
-* [Jupyter](https://jupyter.org/) (optional)
-* [Task](https://taskfile.dev/) (optional)
-
-## 🚧 Why “Kata”?
-
-> In martial arts, a kata is a formalized practice routine to automate movements.
-> In programming, it’s a path to deep understanding through repetition and variation.
-
-This repository is built around the idea of regular practice: by repeating and analyzing the implementation of the same algorithm in different ways, you build intuition, confidence, and flexibility.
-
-## 📁 Project Structure
-
-```structure
-└── machine_learning
-    ├───algorithms
-    │   ├───classical_ml
-    │   │   ├───decision_trees
-    │   │   ├───knn
-    │   │   └───regression_algorithms
-    │   ├───ensemble_methods
-    │   │   ├───bagging
-    │   │   ├───gradient boosting
-    │   │   ├───random_forest
-    │   │   └───stacking
-    │   └───hyperparameter_tuning
-    ├───metrics
-    ├───practice
-    ├───templates
-    └───utils
-        ├───evaluations
-        └───plots
-```
+* [Python 3.13+](https://www.python.org/downloads/)
+* [uv](https://docs.astral.sh/uv/)
+* [Task](https://taskfile.dev/)
+* [Jupyter](https://jupyter.org/)
+* [scikit-learn](https://scikit-learn.org/) · [NumPy](https://numpy.org/) · [pandas](https://pandas.pydata.org/)
+* [XGBoost](https://xgboost.readthedocs.io/) · [CatBoost](https://catboost.ai/) · [LightGBM](https://lightgbm.readthedocs.io/)
+* [Optuna](https://optuna.org/) · [Hyperopt](https://hyperopt.github.io/hyperopt/) · [scikit-optimize](https://scikit-optimize.github.io/)
+* [Matplotlib](https://matplotlib.org/) · [seaborn](https://seaborn.pydata.org/) · [Plotly](https://plotly.com/python/)
 
 ## 📜 License
 
-This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE.md) file for details.
