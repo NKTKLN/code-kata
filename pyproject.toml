@@ -1,7 +1,7 @@
 [project]
-name = "code-kata"
+name = "classical-ml-lab"
 version = "0.1.0"
-description = "A machine-learning practice repository focused on Kaggle competitions"
+description = "A practice repository for classical machine learning algorithms and Kaggle competitions"
 authors = [{ name = "NKTKLN", email = "nktkln@nktkln.com" }]
 readme = "README.md"
 requires-python = ">=3.13"
@@ -20,12 +20,6 @@ ml = [
   "xgboost (>=3.0.2,<4.0.0)",
   "catboost (>=1.2.8,<2.0.0)",
   "lightgbm (>=4.6.0,<5.0.0)",
-]
-
-# Deep learning (PyTorch)
-dl = [
-  "torch (>=2.7.0,<3.0.0)",
-  "torchvision (>=0.22.0,<1.0.0)",
 ]
 
 # Plotting & visualization
@@ -68,7 +62,7 @@ dev = [
 
 [tool.uv]
 # Install every group on a bare `uv sync` (notebooks need the full stack).
-default-groups = ["data", "ml", "dl", "viz", "tuning", "notebook", "dev"]
+default-groups = ["data", "ml", "viz", "tuning", "notebook", "dev"]
 
 [tool.ruff]
 line-length = 88
