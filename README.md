@@ -9,15 +9,6 @@
 
 **Classical ML Lab** is a practice repository for **classical machine learning**. It pairs hands-on **Kaggle competition** notebooks with study material on classical algorithms — from KNN, decision trees, and linear models to ensemble methods — built on **scikit-learn**, the **gradient-boosting** trio (**XGBoost / CatBoost / LightGBM**), and **Optuna** for tuning.
 
-> 💡 Deep learning lives in a separate repository — this lab is intentionally scoped to classical ML.
-
-## ✨ What's Inside
-
-* **📚 Learning notebooks** — algorithms explained and implemented from the ground up, plus metrics and core libraries.
-* **🏆 Competition notebooks** — end-to-end solutions for Kaggle competitions (Titanic, Spaceship Titanic).
-* **🧰 Reusable helpers** — a small `src/` package with evaluation and plotting utilities shared across notebooks.
-* **📝 Templates** — starter notebooks so every new algorithm or competition follows the same layout.
-
 ## 📂 Project Structure
 
 ```text
